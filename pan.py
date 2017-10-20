@@ -15,13 +15,14 @@ while True:
     for y in range(7):
         diff = brightest_index - y
         brightness = 1 - (math.fabs(diff) / 3)  # 6 being the max number of leds remaining . 3 provide sharper fade
-        print("{} {}".format(brightness, diff))
+
+        if diff != 0:
+            brightness /= 2
 
         if brightness < 0:
             brightness = 0
 
         scrollphathd.set_pixel(x, y, brightness)
-
 
     scrollphathd.show()
 
