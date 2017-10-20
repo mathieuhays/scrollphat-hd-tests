@@ -2,6 +2,7 @@
 
 import time
 from random import randrange
+from math import fabs
 import scrollphathd
 
 x = 0
@@ -13,7 +14,8 @@ while True:
 
     for y in range(7):
         diff = brightest_index - y
-        brightness = 1 - (diff / 6)  # 6 being the max number of leds remaining
+        brightness = 1 - (fabs(diff) / 6)  # 6 being the max number of leds remaining
+        print("{} {}".format(brightness, diff))
         scrollphathd.set_pixel(x, y, brightness)
 
 
