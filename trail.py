@@ -35,7 +35,14 @@ while True:
     for y in trail:
         # only render if we're on screen
         if x < 17:
-            scrollphathd.set_pixel(x, y, .5)
+            offset = len(trail) - x
+
+            if offset < trail_length:
+                brightness = 1 - offset / 5
+            else:
+                brightness = 0
+
+            scrollphathd.set_pixel(x, y, brightness)
 
         x += 1
 
