@@ -4,16 +4,20 @@ import time
 import random
 import scrollphathd
 
+# Constants
+TRAIL_LENGTH = 8
+DISPLAY_WIDTH = 17
+DISPLAY_HEIGHT = 7
+
 trail = []
-trail_length = 8
 
 while True:
     # reset screen (we want to change brightness for the trail later)
     scrollphathd.clear()
 
     #  reset trail if off screen
-    if len(trail) == 0 or len(trail) >= 17 + trail_length:
-        initial_index = random.randint(0, 7)
+    if len(trail) == 0 or len(trail) >= DISPLAY_WIDTH + TRAIL_LENGTH:
+        initial_index = random.randint(0, DISPLAY_HEIGHT)
         trail = [initial_index]
         scrollphathd.clear()
         scrollphathd.show()
@@ -24,8 +28,8 @@ while True:
     if new_index < 0:
         new_index = 0
 
-    if new_index >= 7:
-        new_index = 6
+    if new_index >= DISPLAY_HEIGHT:
+        new_index = DISPLAY_HEIGHT - 1
 
     trail.append(new_index)
 
@@ -34,11 +38,11 @@ while True:
 
     for y in trail:
         # only render if we're on screen
-        if x < 17:
+        if x < DISPLAY_WIDTH:
             offset = len(trail) - x
 
-            if offset < trail_length:
-                brightness = 1 - offset / trail_length
+            if offset < TRAIL_LENGTH:
+                brightness = 1 - offset / TRAIL_LENGTH
             else:
                 brightness = 0
 
