@@ -9,7 +9,8 @@ y = 0
 while True:
     scrollphathd.clear()
     scrollphathd.set_pixel(x, y, .5)
-
+    scrollphathd.show()
+    
     x += 1
 
     if x >= 17:
