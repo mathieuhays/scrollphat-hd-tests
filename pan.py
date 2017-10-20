@@ -19,6 +19,8 @@ while True:
         if diff != 0:
             brightness /= 2
 
+        brightness /= 2
+
         if brightness < 0:
             brightness = 0
 
