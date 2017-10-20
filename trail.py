@@ -5,7 +5,7 @@ import random
 import scrollphathd
 
 trail = []
-trail_length = 5
+trail_length = 8
 
 while True:
     # reset screen (we want to change brightness for the trail later)
@@ -38,7 +38,7 @@ while True:
             offset = len(trail) - x
 
             if offset < trail_length:
-                brightness = 1 - offset / 5
+                brightness = 1 - offset / trail_length
             else:
                 brightness = 0
 
