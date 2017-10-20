@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 import time
-from random import randrange
+from random import random
 import scrollphathd
 
 x = 0
 y = 0
 
 while True:
-    brightness = randrange(.05, 1, .05)
+    brightness = random()
 
     scrollphathd.clear()
     scrollphathd.set_pixel(x, y, brightness)
