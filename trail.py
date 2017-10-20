@@ -20,6 +20,13 @@ while True:
 
     # update trail
     new_index = trail[-1] + random.choice([-1, 1])
+
+    if new_index < 0:
+        new_index = 0
+
+    if new_index >= 7:
+        new_index = 6
+
     trail.append(new_index)
 
     # render trail
